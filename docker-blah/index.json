@@ -1,0 +1,23 @@
+{
+    "title": "Docker-blah",
+    "description": "teaches about docker",
+    "details": {
+        "intro": {
+        "text": "intro.md",
+        "foreground": "foreground.sh"
+    },
+    "steps": [
+        {
+            "text": "step1.md"
+        },
+        {
+            "text": "step2.md"
+        }
+    ]
+    },
+    "backend": {
+        "imageid": "ubuntu"
+    }
+    
+    
+}
