@@ -25,19 +25,12 @@ COPY index.html /usr/share/nginx/html/index.html
 terraform {
   required_providers {
     docker = {
-      source  = "kreuzwerker/docker"
-      version = "~> 3.0.2"
+      source = "kreuzwerker/docker"
     }
   }
 }
 
-provider "docker" {
-  host = "unix:///var/run/docker.sock"
-}
-
-resource "docker_network" "app_network" {
-  name = "app_network"
-}
+provider "docker" {}
 
 resource "docker_image" "web" {
   name = "html_web:latest"
@@ -49,13 +42,12 @@ resource "docker_image" "web" {
 resource "docker_container" "web" {
   name  = "web"
   image = docker_image.web.image_id
-  networks_advanced {
-    name = docker_network.app_network.name
-  }
+
   ports {
     internal = 80
     external = 8080
   }
 }
+
 ```
 
