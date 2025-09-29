@@ -1,4 +1,4 @@
-Create bash script smoke-test.sh:
+Run smoke test:
 ``` bash
 #!/bin/bash
 kubectl port-forward deploy/hello-green 9090:5678 &
@@ -16,7 +16,6 @@ else
 fi
 ```
 
-Run it:
-``` bash
-chmod +x smoke-test.sh
-./smoke-test.sh
+- Checks green pod response.
+- If successful → proceed to switch traffic.
+- If failed → green is deleted, blue continues serving.

@@ -2,7 +2,24 @@
 
 We’ll start with the **Blue environment**.
 
+Deploy blue:
 ```bash
-kubectl apply -f blue-deployment.yaml
-kubectl port-forward svc/hello-service 8080:80 &
-curl localhost:8080
+kubectl apply -f /root/assets/blue-deployment.yaml
+```
+
+Check our blue pods:
+```bash
+kubectl get pods -l app=hello,version=blue -o wide
+```
+
+Check endpoints of our service
+```bash
+kubectl get endpoints hello-service
+```
+This should list the blue pods IP addresses
+
+Test:
+``` bash
+kubectl run -it --rm testpod --image=curlimages/curl --restart=Never -- curl http://hello-service:80
+```
+This should return **Hello from BLUE**
