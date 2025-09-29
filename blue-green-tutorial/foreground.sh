@@ -2,8 +2,13 @@
 
 git clone https://github.com/fianmian/tutorial.git
 
-cp -r tutorial/blue-green-tutorial/assets ./assets
+mkdir -p /root/assets
+cp -r tutorial/blue-green-tutorial/assets/* /root/assets/
 
-rm -r tutorial/
+# Make all scripts executable
+chmod +x /root/assets/*.sh
+
+rm -rf tutorial/
 
 clear
+
