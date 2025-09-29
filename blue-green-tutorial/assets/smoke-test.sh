@@ -1,12 +1,14 @@
 #!/bin/bash
 
 # Smoke test URL (inside the cluster)
-URL="http://hello-service:80"
 
 echo "🧪 Running smoke test against GREEN pods..."
 
-# Run curl once from a temporary pod
-RESPONSE=$(kubectl run -i --rm testpod --image=curlimages/curl --restart=Never -- curl -s $URL)
+kubectl port-forward deploy/hello-green 9090:5678 &
+PID=$!
+sleep 2
+RESPONSE=$(curl -s http://localhost:9090)
+kill $PID
 
 if [[ "$RESPONSE" == "Hello from GREEN" ]]; then
     echo "✅ Smoke test passed: GREEN deployment is healthy"
