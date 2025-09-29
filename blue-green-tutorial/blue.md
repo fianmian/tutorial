@@ -41,6 +41,6 @@ spec:
 ```
 
 ```bash
-kubectl apply -f assets/blue-deployment.yaml
+kubectl apply -f blue-deployment.yaml
 kubectl port-forward svc/hello-service 8080:80 &
 curl localhost:8080

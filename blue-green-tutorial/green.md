@@ -27,3 +27,6 @@ spec:
         args:
           - "-text=Hello from GREEN"
 ```
+
+```bash
+kubectl apply -f green-deployment.yaml
