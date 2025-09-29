@@ -3,7 +3,7 @@
     "description": "Learn how to perform Blue-Green deployments with automated smoke testing and rollback using Kubernetes.",
     "details": {
         "steps": [
-            { "title": "Step 1 - Deploy Blue Version", "text": "Blue.md" }
+            { "title": "Step 1 - Deploy Blue Version", "text": "blue.md" }
         ]
     },
     "environment": {
