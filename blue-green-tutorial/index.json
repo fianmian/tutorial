@@ -9,7 +9,8 @@
             { "title": "Step 1 - Deploy Blue Version", "text": "step1/blue.md" },
             { "title": "Step 2 - Deploy Green Version", "text": "step2/green.md" },
             { "title": "Step 3 - Smoke Test", "text": "step3/smoke.md" },
-            { "title": "Step 4 - Traffic Switch", "text": "step4/switch.md" }
+            { "title": "Step 4 - Traffic Switch", "text": "step4/switch.md" },
+            { "title": "Step 6 - Automating with a Mini-Pipeline", "text": "step6/pipeline.md" }
         ]
     },
     "environment": {
