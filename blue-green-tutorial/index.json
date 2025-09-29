@@ -10,6 +10,7 @@
             { "title": "Step 2 - Deploy Green Version", "text": "step2/green.md" },
             { "title": "Step 3 - Smoke Test", "text": "step3/smoke.md" },
             { "title": "Step 4 - Traffic Switch", "text": "step4/switch.md" },
+            { "title": "Step 5 - Rollback", "text": "step4/rollback.md" },
             { "title": "Step 6 - Automating with a Mini-Pipeline", "text": "step6/pipeline.md" }
         ]
     },
