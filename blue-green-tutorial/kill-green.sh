@@ -1,4 +1,6 @@
 #!/bin/bash
-sleep 15
-kubectl set image deployment/hello-green hello-green=hashicorp/http-echo:doesnotexist --record
-echo "⚠️ Simulated failure: green deployment updated to bad image"
+
+# Simulate failure: patch hello-green with a bad image
+kubectl set image deployment/hello-green hello-green=hashicorp/http-echo:doesnotexist --record >/dev/null 2>&1
+
+echo "⚠️ Simulated failure: green deployment updated to a bad image"
