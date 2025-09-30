@@ -1,4 +1,4 @@
-# Kill green pods to simulate failure
-kubectl delete pods -l app=hello,version=green --force --grace-period=0
-
-echo "⚠️ Simulated failure: green pods terminated"
+#!/bin/bash
+sleep 15
+kubectl set image deployment/hello-green hello-green=hashicorp/http-echo:doesnotexist --record
+echo "⚠️ Simulated failure: green deployment updated to bad image"
