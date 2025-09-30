@@ -1,3 +1,5 @@
 Automate the previous with a pipeline. 
 
-Run ```./deploy.sh``` to simulate continuous deployment
+Write `cat assets/deploy.sh` to explore a automated pipeline of the previous steps of this tutorial combined. 
+
+Run `./assets/deploy.sh` to simulate continuous deployment. 
