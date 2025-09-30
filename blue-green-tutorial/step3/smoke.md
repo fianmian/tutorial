@@ -1,4 +1,4 @@
-Run smoke test:
+Let's run a smoke test for the green version in the terminal:
 ``` bash
 #!/bin/bash
 kubectl port-forward deploy/hello-green 9090:5678 &
@@ -15,7 +15,7 @@ else
   exit 1
 fi
 ```
-
+This smoke test:
 - Checks green pod response.
 - If successful → proceed to switch traffic.
 - If failed → green is deleted, blue continues serving.
