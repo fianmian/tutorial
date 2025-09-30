@@ -2,7 +2,11 @@
 
 Let's deploy the **Green environment**.
 
-```bash
+```
+kubectl apply -f green-deployment.yaml
+```
+
+``` bash
 kubectl apply -f green-deployment.yaml
 ```
 
