@@ -12,12 +12,15 @@ Delete green deployment:
 `kubectl delete deploy hello-green`
 
 Make sure traffic goes to blue deployment:
+
 `kubectl patch svc hello-service -p '{"spec":{"selector":{"app":"hello","version":"blue"}}}'`
 
 Verify endpoints:
 `kubectl get endpoints hello-service`
 
 Test that blue is still serving:
+
 `kubectl run -it --rm testpod --image=curlimages/curl --restart=Never -- curl http://hello-service:80`
+
 should return Hello from **BLUE**
 
