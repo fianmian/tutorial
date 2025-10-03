@@ -1,4 +1,4 @@
-# Step 1 - Deploy Green Version
+# Step 2 - Deploy Green Version
 
 Let's deploy the **Green environment**.
 
