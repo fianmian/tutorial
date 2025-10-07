@@ -8,10 +8,8 @@ kill $PID
 
 if [[ "$RESPONSE" == "Hello from GREEN" ]]; then
   echo "✅ Smoke test passed"
-  exit 0
 else
   echo "❌ Smoke test failed"
-  exit 1
 fi
 ```{{exec}}
 

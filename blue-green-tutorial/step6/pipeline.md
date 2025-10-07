@@ -3,6 +3,11 @@ Now, let's automate the previous steps with a pipeline. Before running this pipe
 2. Perform a **smoke test** on our green version
 3. If smoke test pass: switch traffic to the green version. If smoke test fail: delete our deployed green version. 
 
+> **Optional**: If you want to see the failure scenario in action, you can modify the green deployment before running the pipeline by executing:
+> ```
+> sed -i 's/"-text=Hello from GREEN"/"-text=Hello from GREEN but broken 😈"/' /root/assets/green-deployment.yaml
+> ```{{exec}}
+
 These steps are done with the following script. Let's execute it!
 
 ```
@@ -33,4 +38,4 @@ else
 fi
 ```{{exec}}
 
-Now we have successfully deployed our green version and switched the traffic of it. Well done!
+Now we have successfully automated the deployment process! Well Done!

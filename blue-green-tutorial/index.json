@@ -33,7 +33,8 @@
             },
             { 
                 "title": "Step 6 - Automating with a Mini-Pipeline", 
-                "text": "step6/pipeline.md" }
+                "text": "step6/pipeline.md"
+            }
         ]
     },
     "environment": {

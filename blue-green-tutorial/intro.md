@@ -1,6 +1,31 @@
 ## Blue-Green Deployment
 Blue-Green deployment is a software deployment method used for safely deploying a new version of an app. In this method we have two servers: the "blue" server and the "green" server. The blue server is the old version and the green server is the new version. We make changes to the green server. We then redirect requests from the blue server to the green server. If there would be any problems, we can easily rollback to the blue server. 
 
+              ┌──────────────────────┐
+              │   Users / Clients    │
+              └──────────┬───────────┘
+                         │
+                         ▼
+          ┌──────────────┴─────────/ ────┐
+          │                              │
+ ┌────────▼────────┐           ┌────────▼────────┐
+ │   BLUE Env.     │           │   GREEN Env.    │
+ │ (Current Live)  │           │ (New Version)   │
+ │   v1.0          │           │   v1.1          │
+ └─────────────────┘           └─────────────────┘
+            State:   Traffic → BLUE
+
+
+## Motivation & Why It Matters to DevOps
+In modern DevOps practices, continuous delivery (CD) means deploying changes frequently and reliably. However, frequent deployments increase the risk of service disruption. Blue-Green deployment provides a safe deployment pattern that enables:
+
+- Zero-downtime releases – because traffic is switched between two live environments.
+- Instant rollback – reverting to the previous (Blue) version is immediate if something goes wrong.
+- Production-like testing – the Green version can be tested in a real environment before users see it.
+- Continuous Delivery enablement – teams can release confidently, knowing they can roll back safely.
+
+This approach bridges the gap between development and operations by reducing deployment risks, aligning with DevOps principles of automation, reliability, and rapid iteration.
+
 ## Smoke tests
 Smoke tests are types of software tests that are fairly easy to test that there are not any major failures. These tests test the most important functionalities of the system to make sure it is ready for release. This can be paired with the Blue-Green deployment strategy in doing a smoke test of the green version to see if we can reroute request from the blue server to the green one. 
 
