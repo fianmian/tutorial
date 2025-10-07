@@ -1,20 +1,22 @@
 ## Blue-Green Deployment
 Blue-Green deployment is a software deployment method used for safely deploying a new version of an app. In this method we have two servers: the "blue" server and the "green" server. The blue server is the old version and the green server is the new version. We make changes to the green server. We then redirect requests from the blue server to the green server. If there would be any problems, we can easily rollback to the blue server. 
 
+```
               ┌──────────────────────┐
               │   Users / Clients    │
               └──────────┬───────────┘
                          │
                          ▼
-          ┌──────────────┴─────────/ ────┐
-          │                              │
+          ┌──────────────┴─────────/ ───┐
+          │                             │
  ┌────────▼────────┐           ┌────────▼────────┐
  │   BLUE Env.     │           │   GREEN Env.    │
  │ (Current Live)  │           │ (New Version)   │
  │   v1.0          │           │   v1.1          │
  └─────────────────┘           └─────────────────┘
-            State:   Traffic → BLUE
+State:  Green disconnected => Traffic goes to BLUE
 
+```
 
 ## Motivation & Why It Matters to DevOps
 In modern DevOps practices, continuous delivery (CD) means deploying changes frequently and reliably. However, frequent deployments increase the risk of service disruption. Blue-Green deployment provides a safe deployment pattern that enables:
