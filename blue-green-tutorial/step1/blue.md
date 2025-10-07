@@ -1,5 +1,3 @@
-# Deploy Blue Version
-
 We’ll start with deploying the **Blue environment**. The blue version is our old/current server. This is a server that we already know is working and that we can go back to if a new version is not working. 
 
 ### Kubernetes File

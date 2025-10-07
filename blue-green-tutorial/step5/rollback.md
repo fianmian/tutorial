@@ -6,21 +6,31 @@ We want to:
 - make sure service points to blue version
 
 Check what pods are running:
-`kubectl get pods -l app=hello`
+```
+kubectl get pods -l app=hello
+```{{exec}}
 
 Delete green deployment:
-`kubectl delete deploy hello-green`
+```
+kubectl delete deploy hello-green
+```{{exec}}
 
 Make sure traffic goes to blue deployment:
 
-`kubectl patch svc hello-service -p '{"spec":{"selector":{"app":"hello","version":"blue"}}}'`
+```
+kubectl patch svc hello-service -p '{"spec":{"selector":{"app":"hello","version":"blue"}}}'
+```{{exec}}
 
 Verify endpoints:
-`kubectl get endpoints hello-service`
+```
+kubectl get endpoints hello-service
+```{{exec}}
 
 Test that blue is still serving:
 
-`kubectl run -it --rm testpod --image=curlimages/curl --restart=Never -- curl http://hello-service:80`
+```
+kcurl http://hello-service:80
+```{{exec}}
 
 should return Hello from **BLUE**
 

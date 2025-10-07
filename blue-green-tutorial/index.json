@@ -10,7 +10,6 @@
             { 
                 "title": "Step 1 - Deploy Blue Version", 
                 "text": "step1/blue.md",
-                "foreground": "background.sh",
                 "verify": "step1/verify.sh"
             },
             { 

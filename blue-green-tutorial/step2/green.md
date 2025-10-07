@@ -1,5 +1,3 @@
-# Step 2 - Deploy Green Version
-
 Let's deploy the **Green environment**. We have now decided we want to update our system, so we have created a new version of the system -- the green version. We are now going to deploy this version and later redirect our traffic from the blue version to this new version. 
 
 ### Kubernetes File
