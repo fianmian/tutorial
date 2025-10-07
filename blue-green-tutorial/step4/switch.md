@@ -1,15 +1,25 @@
-# Step 4 - Traffic Switch
+Since our **smoke test** passes, we can "safely" switch our service from the blue pods to the green ones. 
 
-Switch from blue --> to green:
+### Switch Traffic
+We switch the traffic with the following command that changes the version the service is running to "green".
 
-`kubectl patch svc hello-service -p '{"spec":{"selector":{"app":"hello","version":"green"}}}'`
+```
+kubectl patch svc hello-service -p '{"spec":{"selector":{"app":"hello","version":"green"}}}'
+```{{exec}}
 
-Check the endpoints of our service, should now be green's IP addresses:
+Now our service should be redirected to our green new servers. 
 
-`kubectl get endpoints hello-service`
+### Test our service
+Now let's check the endpoints of our service, they should now we pointing to green's IP addresses instead of blue's:
 
-Verify traffic:
+```
+kubectl get endpoints hello-service
+```{{exec}}
 
-`kubectl run -it --rm testpod --image=curlimages/curl --restart=Never -- curl http://hello-service:80`
+Now let's verify that the service responds with **"Hello from GREEN"** now instead of "Hello from BLUE":
 
-should now return **Hello from GREEN**
+```
+kcurl http://hello-service:80
+```{{exec}}
+
+Before continuing to the next step, make sure you have correctly switched the traffic. 

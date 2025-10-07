@@ -7,14 +7,33 @@
             "foreground": "foreground.sh"
         },
         "steps": [
-            { "title": "Step 1 - Deploy Blue Version", "text": "step1/blue.md" },
-            { "title": "Step 2 - Deploy Green Version", "text": "step2/green.md" },
-            { "title": "Step 3 - Smoke Test", "text": "step3/smoke.md" },
-            { "title": "Step 4 - Traffic Switch", "text": "step4/switch.md" },
-            { "title": "Step 5 - Rollback", 
-            "text": "step5/rollback.md"
+            { 
+                "title": "Step 1 - Deploy Blue Version", 
+                "text": "step1/blue.md",
+                "foreground": "background.sh",
+                "verify": "step1/verify.sh"
             },
-            { "title": "Step 6 - Automating with a Mini-Pipeline", "text": "step6/pipeline.md" }
+            { 
+                "title": "Step 2 - Deploy Green Version", 
+                "text": "step2/green.md" 
+            },
+            { 
+                "title": "Step 3 - Smoke Test", 
+                "text": "step3/smoke.md",
+                "verify": "step3/verify.sh" 
+            },
+            { 
+                "title": "Step 4 - Traffic Switch", 
+                "text": "step4/switch.md",
+                "verify": "step4/verify.sh" 
+            },
+            { 
+                "title": "Step 5 - Rollback", 
+                "text": "step5/rollback.md"
+            },
+            { 
+                "title": "Step 6 - Automating with a Mini-Pipeline", 
+                "text": "step6/pipeline.md" }
         ]
     },
     "environment": {

@@ -1,5 +1,36 @@
-Automate the previous with a pipeline. 
+Now, let's automate the previous steps with a pipeline. Before running this pipeline it is given that our service is already pointing to our **blue version**. Now we want to automate the process of:
+1. Deploying our **green version**
+2. Perform a **smoke test** on our green version
+3. If smoke test pass: switch traffic to the green version. If smoke test fail: delete our deployed green version. 
 
-Write `cat assets/deploy.sh` to explore a automated pipeline of the previous steps of this tutorial combined. It is given that the blue version is already deployed and used as the server(s) of our service. This pipeline deploys the green version, makes a smoke test, and if test is successful makes our green version endpoint(s) of our service. 
+These steps are done with the following script. Let's execute it!
 
-Run `./assets/deploy.sh` to simulate continuous deployment. 
+```
+ASSETS=/root/assets
+
+echo "🚀 Deploying GREEN version..."
+kubectl apply -f $ASSETS/green-deployment.yaml
+
+# Wait until all green pods are READY
+echo "⏳ Waiting for green pods to be ready..."
+kubectl wait --for=condition=Ready pod -l app=hello,version=green --timeout=60s
+
+# Run smoke test
+echo "🧪 Running smoke test..."
+$ASSETS/smoke-test.sh
+SMOKE_RESULT=$?
+
+if [[ $SMOKE_RESULT -eq 0 ]]; then
+    echo "✅ Smoke test passed. Switching traffic to GREEN..."
+    kubectl patch svc hello-service -p '{"spec":{"selector":{"app":"hello","version":"green"}}}'
+    echo "🎉 Traffic now routed to GREEN"
+
+    # Show endpoints for visual confirmation
+    kubectl get endpoints hello-service
+else
+    echo "❌ Smoke test failed. Keeping BLUE active and deleting GREEN pods..."
+    kubectl delete deploy hello-green
+fi
+```{{exec}}
+
+Now we have successfully deployed our green version and switched the traffic of it. Well done!

@@ -1,3 +1,4 @@
+# Blue Deployment
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -20,6 +21,7 @@ spec:
         args:
           - "-text=Hello from BLUE"
 ---
+# Kubernetes Service
 apiVersion: v1
 kind: Service
 metadata:
