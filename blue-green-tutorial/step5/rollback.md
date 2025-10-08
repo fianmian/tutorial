@@ -26,7 +26,7 @@ kubectl delete deploy hello-green
 ```{{exec}}
 
 ### Verification
-Let's verify the endpoints of our service is now pointing to the green servers:
+Let's verify the endpoints of our service is now pointing to the blue servers:
 ```
 kubectl get endpoints hello-service
 ```{{exec}}
