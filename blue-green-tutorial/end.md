@@ -1,1 +1,1 @@
-Thank you for doing this tutorial! Hopefully you've had fun and learnt something about Blue-Green Deployment or Smoke Test!
+Thank you for doing this tutorial! Hopefully you've had fun and learnt something about Blue-Green Deployment or Smoke Tests!
