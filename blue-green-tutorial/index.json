@@ -38,7 +38,10 @@
                 "text": "step6/pipeline.md",
                 "background": "step6/background.sh"
             }
-        ]
+        ],
+        "finish": {
+            "text": "end.md"
+        }
     },
     "environment": {
     "uilayout": "terminal",
