@@ -27,25 +27,10 @@ Before continuing to the next step, let's make sure that the green pods are runn
 
 ### 🔘 Try it out!
 
-<button id="smoke-btn" style="padding: 8px 16px; border-radius: 8px; border: none; background-color: #4CAF50; color: white; cursor: pointer; font-size: 1em;">
-🔥 Run Smoke Test
-</button>
-<span id="smoke-result" style="display: inline-block; width: 2em; height: 1.5em; text-align: center; margin-left: 12px; font-size: 1.8em; vertical-align: middle;"></span>
+<details>
+<summary>🔥 Run Smoke Test</summary>
 
-<script>
-document.getElementById('smoke-btn').addEventListener('click', function() {
-  const result = document.getElementById('smoke-result');
-  result.textContent = '💨';
-  let toggle = false;
-  let count = 0;
-  const interval = setInterval(() => {
-    result.textContent = toggle ? '🔥' : '💨';
-    toggle = !toggle;
-    count++;
-    if (count > 10) { // ~3 seconds total
-      clearInterval(interval);
-      result.textContent = '✅'; // final indicator
-    }
-  }, 200); // toggle every 0.5s
-});
-</script>
+🔥 💨 💨 💨 💨 💨 🔥 <br>
+Smoke test passed!✔️😎
+
+</details>
