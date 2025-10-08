@@ -19,7 +19,7 @@ This script performs a **smoke test** on our green Kubernetes deployment by:
 3. Verifying that the response says "Hello from GREEN".
 
 By doing this **smoke test** we can:
-- Check that the green pod respond as they should (with "Hello from GREEN").
+- Check that the green pods respond as they should (with "Hello from GREEN").
 - If successful → proceed to switch traffic.
 - If failed → green is deleted, blue continues serving.
 
